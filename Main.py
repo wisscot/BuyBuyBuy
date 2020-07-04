@@ -46,6 +46,8 @@ class ChromeBrowser:
                 if price < price_target:
                     self.notify(f"Price of Fit Ring Dropped below {price_target:.2f}")
                     # todo: logging
+                    return
+            self.refresh()
             time.sleep(interval)
             
     def notify(self, text):
@@ -53,11 +55,11 @@ class ChromeBrowser:
         url = url + f"?text={text}"
         r = requests.get(url)
         print(r)
-                       
+    
 def main():
     chrome = ChromeBrowser()
-    chrome.login()
-    input('login first')
+    # chrome.login()
+    # input('login first')
     chrome.goto_product_page()
     chrome.monitor_price(interval=5)
     
