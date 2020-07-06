@@ -52,7 +52,7 @@ class ChromeBrowser:
             if price < price_target:
                 self.notify(f"Price of Fit Ring Dropped below {price_target:.2f}")
                 # todo: logging
-                buyNowButtons = driver.find_elements_by_id("buy-now-button")[0]
+                buyNowButtons = driver.find_elements_by_id("buy-now-button")
                 if not buyNowButtons:
                     time.sleep(interval)
                     print(time.ctime(), "there's no buyNowButton")
