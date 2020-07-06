@@ -67,7 +67,7 @@ class ChromeBrowser:
                 return
             
     def notify(self, text):
-        url = "https://sc.ftqq.com/SCU99587T0e9e928545d18717051d27030eb41c025ecef193d432e.send"
+        url = os.environ.get('ftqqURL')
         url = url + f"?text={text} seed{random.randint(1,100)}"
         r = requests.get(url)
         print(r)
